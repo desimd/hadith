@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Hadith</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    #hadith {
+      margin-top: 20px;
+      font-size: 18px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>📖 Daily Hadith</h2>
+  <div id="hadith">Loading...</div>
+
+  <script>
+    const hadithCount = 6; // Change this number as you add more Hadiths
+    const randomIndex = Math.floor(Math.random() * hadithCount) + 1;
+    const fileName = `hadiths/hadith${randomIndex}.txt`;
+
+    fetch(fileName)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('hadith').innerText = data;
+      })
+      .catch(err => {
+        document.getElementById('hadith').innerText = "Couldn't load Hadith.";
+      });
+  </script>
+</body>
+</html>
