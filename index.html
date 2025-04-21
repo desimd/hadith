@@ -23,7 +23,7 @@
   <script>
     const hadithCount = 6; // Change this number as you add more Hadiths
     const randomIndex = Math.floor(Math.random() * hadithCount) + 1;
-    const fileName = `hadith/hadith${randomIndex}.txt`;
+    const fileName = `select/hadith${randomIndex}.txt`;
 
     fetch(fileName)
       .then(response => response.text())
